@@ -2,13 +2,10 @@
 #
 # hash = { key1: {}, key2: {}, key3: { key4: 'str', key5: 'str2', key6: { key7: { key8: 1, key9: [2]} } }}
 
-
-hash = { key1: {}, key2: {}, key3: { key4: 'str', key5: 'str2', key6: { key7: { key8: 1, key9: [2]} } }}
-
 def find_value(hash, mykey = :key1)
   hash.each do |key, value|
     if key == mykey
-      puts "\nWe find it! #{key}: #{value}"
+      puts "\nWe found it! #{key}: #{value}"
       return value
     else
       puts "no + #{key} + #{value}"
@@ -21,4 +18,5 @@ def find_value(hash, mykey = :key1)
   end
 end
 
+hash = { key1: {}, key2: {}, key3: { key4: 'str', key5: 'str2', key6: { key7: { key8: 1, key9: [2]} } }}
 find_value(hash, :key9)
