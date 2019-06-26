@@ -9,8 +9,8 @@ get_all(array, String)
 get_all(array, Integer)
 => [1, 2, 3, 4, 111, 222, 333, 444, 100000]
 =end
-
-def get_all(array, type, result_array = Array.new)
+class Task6
+  def get_all(array, type, result_array = Array.new)
   array.each do |item|
     # puts item, item.class.to_s, type, "\n"
     if item.class.to_s == 'Array' || item.class.to_s == 'Hash'
@@ -22,11 +22,15 @@ def get_all(array, type, result_array = Array.new)
     end
   end
   return result_array
-end
+  end
 
-array = [[1, 2, 3, 4, '1'], %w[2 5 10], [111, 222, 333, 444], %w[i love ruby], { key: 'value' }, [[['text', 100_000]]]]
-array.display
-puts "\n\n"
-get_all(array, 'Integer').display
-puts
-get_all(array, 'String').display
+  def initialize
+    array = [[1, 2, 3, 4, '1'], %w[2 5 10], [111, 222, 333, 444], %w[i love ruby], { key: 'value' }, [[['text', 100_000]]]]
+    array.display
+    puts "\n\n"
+    get_all(array, 'Integer').display
+    puts
+    get_all(array, 'String').display
+  end
+
+end
