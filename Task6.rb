@@ -10,6 +10,9 @@ get_all(array, Integer)
 => [1, 2, 3, 4, 111, 222, 333, 444, 100000]
 =end
 class Task6
+  # array.flatten.map { |val| val if val.is_a?(Integer) }.compact
+
+
   def get_all(array, type, result_array = Array.new)
     array.each do |item|
       # puts item, item.class.to_s, type, "\n"

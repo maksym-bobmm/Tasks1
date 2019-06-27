@@ -13,11 +13,12 @@ class Task5
   def formalize(str, style)
     case style
     when :camel
-      strarr = str.split
-      strarr.each do |item|
-        item.capitalize!
-      end
-      strarr.join
+      # strarr = str.split
+      # strarr.each do |item|
+      #   item.capitalize!
+      # end
+      # strarr.join
+      str.split.map(&:capitalize).join
     when :underscore
       str.gsub ' ', '_'
     when :css
