@@ -9,23 +9,26 @@ formatize(str, :underscore)
 formatize(str, :css)
 => 'i-love-ruby'
 =end
-def formalize(str, style)
-  case style
-  when :camel
-    strarr = str.split
-    strarr.each do |item|
-      item.capitalize!
+class Task5
+  def formalize(str, style)
+    case style
+    when :camel
+      strarr = str.split
+      strarr.each do |item|
+        item.capitalize!
+      end
+      strarr.join
+    when :underscore
+      str.gsub ' ', '_'
+    when :css
+      str.gsub ' ', '-'
     end
-    strarr.join
-  when :underscore
-    str.gsub ' ', '_'
-  when :css
-    str.gsub ' ', '-'
+  end
+  def initialize
+    str = 'i love ruby'
+    puts str, "\n"
+    puts formalize(str, :camel)
+    puts formalize(str, :underscore)
+    puts formalize(str, :css)
   end
 end
-
-str = 'i love ruby'
-puts str, "\n"
-puts formalize(str, :camel)
-puts formalize(str, :underscore)
-puts formalize(str, :css)

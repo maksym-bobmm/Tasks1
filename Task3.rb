@@ -36,6 +36,3 @@ class Task3
     doMatrix(size)
   end
 end
-
-
-Task3.new()

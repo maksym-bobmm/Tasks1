@@ -11,17 +11,17 @@ get_all(array, Integer)
 =end
 class Task6
   def get_all(array, type, result_array = Array.new)
-  array.each do |item|
-    # puts item, item.class.to_s, type, "\n"
-    if item.class.to_s == 'Array' || item.class.to_s == 'Hash'
-      if item.count > 0
-        get_all(item, type, result_array)
+    array.each do |item|
+      # puts item, item.class.to_s, type, "\n"
+      if item.class.to_s == 'Array' || item.class.to_s == 'Hash'
+        if item.count > 0
+          get_all(item, type, result_array)
+        end
+      elsif item.class.to_s == type
+        result_array << item
       end
-    elsif item.class.to_s == type
-      result_array << item
     end
-  end
-  return result_array
+    return result_array
   end
 
   def initialize
@@ -31,6 +31,7 @@ class Task6
     get_all(array, 'Integer').display
     puts
     get_all(array, 'String').display
+    puts
   end
 
 end
