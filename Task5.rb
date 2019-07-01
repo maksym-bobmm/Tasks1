@@ -1,23 +1,8 @@
-=begin
-Написать метод, который принимает строку и приводит её в CamelCase, ruby_case_underscore и css-case. Пример:
-
-    str = 'i love ruby'
-formatize(str, :camel)
-=> 'ILoveRuby'
-formatize(str, :underscore)
-=> 'i_love_ruby'
-formatize(str, :css)
-=> 'i-love-ruby'
-=end
+#frozen_string_literal: true
 class Task5
   def formalize(str, style)
     case style
     when :camel
-      # strarr = str.split
-      # strarr.each do |item|
-      #   item.capitalize!
-      # end
-      # strarr.join
       str.split.map(&:capitalize).join
     when :underscore
       str.gsub ' ', '_'
@@ -25,6 +10,7 @@ class Task5
       str.gsub ' ', '-'
     end
   end
+
   def initialize
     str = 'i love ruby'
     puts str, "\n"
