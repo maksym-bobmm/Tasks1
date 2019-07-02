@@ -12,17 +12,28 @@ class Task2
 
   def draw_circle(radius = 5, indent = 25)
     internal_spaces = radius * 4 # r*2*2
-    (1..radius * 2 + 1).each do |line_number|
-      if line_number == 1 || line_number == radius * 2 + 1 # top and bottom line of the circle
-        puts(make_left_spaces(radius, line_number - 1, indent) + '* * *')
+    last_line_number = radius * 2 + 1
+    (1..last_line_number).each do |line_number|
+      if [1, last_line_number].include?(line_number) # top and bottom line of the circle
+        draw_line(radius, line_number - 1, indent, nil, :top_bottom)
       elsif line_number == radius + 1 # middle line of the circle
-        puts(make_left_spaces(0, 0, indent) + ' **' + ' ' * radius * 4 + '**')
+        draw_line(0, 0, indent, internal_spaces, :center)
       elsif line_number <= radius # top half lines of the circle
-        puts(make_left_spaces(radius, line_number - 1, indent) + '*' + ' ' * line_number * 4 + '*')
+        draw_line(radius, line_number - 1, indent, line_number * 4)
       else # bottom half lines of the circle
-        puts(make_left_spaces(radius, line_number - 1, indent) + '*' + ' ' * internal_spaces + '*')
+        draw_line(radius, line_number - 1, indent, internal_spaces)
         internal_spaces -= 4
       end
+    end
+  end
+
+  def draw_line(radius, line_number, indent, space_repeat_number = nil, line_type = :common)
+    if line_type == :center
+      puts(make_left_spaces(radius, line_number, indent) + ' **' + ' ' * space_repeat_number + '**')
+    elsif line_type == :top_bottom
+      puts(make_left_spaces(radius, line_number, indent) + '* * *')
+    else
+      puts(make_left_spaces(radius, line_number, indent) + '*' + ' ' * space_repeat_number + '*')
     end
   end
 

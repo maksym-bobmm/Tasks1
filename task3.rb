@@ -1,7 +1,15 @@
+# frozen_string_literal: true
+
+# Print to the console the matrix with units diagonally. The size is set from the console. Example:
+# 1 0 0 0 0 0
+# 0 1 0 0 0 0
+# 0 0 1 0 0 0
+# 0 0 0 1 0 0
+# 0 0 0 0 1 0
+# 0 0 0 0 0 1
 class Task3
   def create_matrix(size)
-    var = Array.new(size) {Array.new(size, 0)}
-    return var
+    Array.new(size) { Array.new(size, 0) }
   end
 
   def do_matrix(size = 6)
