@@ -10,18 +10,8 @@
 # get_all(array, Integer)
 # => [1, 2, 3, 4, 111, 222, 333, 444, 100000]
 class Task6
-  # array.flatten.map { |val| val if val.is_a?(Integer) }.compact
-  def get_all(array, type, result_array = [])
-    array.each do |item|
-      # puts item, item.class.to_s, type, "\n"
-      # if item.class.to_s == 'Array' || item.class.to_s == 'Hash'
-      if %w[Array Hash].include?(item.class.to_s)
-        get_all(item, type, result_array) if item.count.positive?
-      elsif item.class.to_s == type
-        result_array << item
-      end
-    end
-    result_array
+  def get_all(array, type)
+    array.flatten.map { |val| val if val.is_a?(type) }.compact
   end
 
   def initialize
@@ -29,9 +19,9 @@ class Task6
              { key: 'value' }, [[['text', 100_000]]]]
     array.display
     puts "\n\n"
-    get_all(array, 'Integer').display
+    get_all(array, Integer).display
     puts
-    get_all(array, 'String').display
+    get_all(array, String).display
     puts
   end
 end

@@ -14,9 +14,9 @@ class Task5
     when :camel
       str.split.map(&:capitalize).join
     when :underscore
-      str.gsub ' ', '_'
+      str.tr ' ', '_'
     when :css
-      str.gsub ' ', '-'
+      str.tr ' ', '-'
     end
   end
 
