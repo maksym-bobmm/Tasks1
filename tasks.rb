@@ -18,21 +18,15 @@ class MyTasks
 
   def invitation
     case choice
-    when 1
-      Task1.new.print
-    when 2
-      Task2.new(radius, indent)
+    when 1 then Task1.new.print
+    when 2 then Task2.new(radius, indent)
     when 3
       puts 'Enter matrix size'
       Task3.new(gets.to_i)
-    when 4
-      Task4.new
-    when 5
-      Task5.new
-    when 6
-      Task6.new
-    else
-      puts 'Wrong number, try again'
+    when 4 then Task4.new
+    when 5 then Task5.new
+    when 6 then Task6.new
+    else puts 'Wrong number, try again'
     end
   end
 
